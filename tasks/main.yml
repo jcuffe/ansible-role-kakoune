@@ -29,3 +29,5 @@
 
 - name: install plugins
   when: false
+  debug:
+    msg: 'no'
