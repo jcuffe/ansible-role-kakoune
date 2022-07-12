@@ -79,7 +79,12 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
     map global user r ': lsp-rename-prompt<ret>'
 }
 
-# Format with Prettier
+# Format JS/TS with Prettier
 hook global BufSetOption filetype=(typescript|javascript) %{
     set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+}
+
+# Format YAML with yq
+hook global BufSetOption filetype=(yaml) %{
+    set-option buffer formatcmd "yq < %val{buffile}"
 }
