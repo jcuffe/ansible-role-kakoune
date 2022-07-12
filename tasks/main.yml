@@ -25,7 +25,7 @@
 - name: populate user configuration
   copy:
     src: kakrc
-    dest: ~/.config/kakrc
+    dest: ~/.config/kak/kakrc
 
 - name: install plugins
   when: false
