@@ -33,6 +33,9 @@ plug "eraserhd/parinfer-rust" do %{
 # Options and Settings
 #
 
+# Use solarized colorscheme
+colorscheme solarized-dark
+
 # Always show number lines
 add-highlighter global/ number-lines
 
@@ -57,10 +60,14 @@ map global insert <s-tab> '<a-;><a-lt>'
 # Yank to the system clipboard (`y` only)
 hook global NormalKey y %{
     nop %sh{
-        encoded=$(printf %s "$kak_main_reg_dquote" | base64 | tr -d '\n')
+        # Set contents of main register to tmux copy buffer
+        # -w flag is required to pass data along to system clipboard
+        tmux setb -w "$kak_main_reg_dquote"
 
+        # Currently using tmux instead of OSC 52
         # Emit OSC 52 escape sequence with the yanked text as argument
-        printf "\e]52;c;%s\e\\" "$encoded" > /dev/tty
+        # encoded=$(printf %s "$kak_main_reg_dquote" | base64 | tr -d '\n')
+        # printf "\e]52;c;%s\e\\" "$encoded" > /dev/tty
     }
 }
 
