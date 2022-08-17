@@ -49,8 +49,9 @@ map -docstring 'surround mode' global normal q ': surround-mode<ret>'
 # Format document
 map -docstring 'format document' global user f ': format<ret>'
 
-# Comment line
+# Comment command
 map -docstring 'comment line(s)' global user c ': comment-line<ret>'
+map -docstring 'comment block' global user C ': comment-block<ret>'
 
 # Control indent with tab while in insert mode
 map global insert <tab> '<a-;><a-gt>'
