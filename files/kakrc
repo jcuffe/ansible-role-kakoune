@@ -33,6 +33,9 @@ plug "eraserhd/parinfer-rust" do %{
 # Options and Settings
 #
 
+# Always reload files that have changed on disk
+set-option global autoreload true
+
 # Use solarized colorscheme
 colorscheme solarized-dark
 
