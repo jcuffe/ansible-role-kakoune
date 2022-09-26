@@ -40,7 +40,7 @@ add-highlighter global/ number-lines
 #
 
 # Enter surround mode
-map -docstring 'surround mode' global normal q ': surround-mode<ret>'
+map -docstring 'surround mode' global normal q ': enter-surround-mode<ret>'
 
 # Format document
 map -docstring 'format document' global user f ': format<ret>'
