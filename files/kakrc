@@ -49,9 +49,9 @@ map -docstring 'format document' global user f ': format<ret>'
 map -docstring 'comment line(s)' global user c ': comment-line<ret>'
 map -docstring 'comment block' global user C ': comment-block<ret>'
 
-# Control indent with tab while in insert mode
-map global insert <tab> '<a-;><a-gt>'
-map global insert <s-tab> '<a-;><a-lt>'
+# Split windows
+map -docstring 'split editor (vertical)' global user \" ':tmux-terminal-vertical kak -c %val{session}<ret>'
+map -docstring 'split editor (horizontal)' global user <percent> ':tmux-terminal-horizontal kak -c %val{session}<ret>'
 
 #
 # Hooks
