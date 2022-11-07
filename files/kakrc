@@ -29,9 +29,6 @@ plug "kak-lsp/kak-lsp" do %{
 # Always reload files that have changed on disk
 set-option global autoreload true
 
-# Use solarized colorscheme
-colorscheme solarized-dark
-
 # Always show number lines
 add-highlighter global/ number-lines
 
