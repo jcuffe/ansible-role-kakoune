@@ -19,9 +19,17 @@
           make install
         chdir: "{{ kakoune_src_dir }}"
 - name: populate user configuration
-  copy:
-    src: kakrc
-    dest: ~/.config/kak/kakrc
+  vars:
+    config_directory: "~/.config/kak"
+  block:
+    - name: ensure existence of config directory
+      file:
+        path: "{{ config_directory }}"
+        state: directory
+    - name: copy configuration file
+      copy:
+        src: kakrc
+        dest: "{{ config_directory }}/kakrc"
 - name: install plugins
   when: false
   debug:
