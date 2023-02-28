@@ -29,8 +29,21 @@
     - name: copy configuration file
       copy:
         src: kakrc
-        dest: "{{ config_directory }}/kakrc"
-- name: install plugins
-  when: false
-  debug:
-    msg: 'no'
+        dest: "{{ config_directory }}"
+# TODO: Implement
+# - name: install plugins
+#   when: false
+#   debug:
+#     msg: 'no'
+- name: populate kak-lsp configuration
+  vars:
+    config_directory: "~/.config/kak-lsp"
+  block:
+    - name: ensure existence of config directory
+      file:
+        path: "{{ config_directory }}"
+        state: directory
+    - name: copy configuration file
+      copy:
+        src: kak-lsp.toml
+        dest: "{{ config_directory }}"
