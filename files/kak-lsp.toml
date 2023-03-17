@@ -46,12 +46,12 @@ hoverActions.enable = false # kak-lsp doesn't support this at the moment
 
 [language.tsx]
 filetypes = ["typescript", "javascript"]
-roots = ["tsconfig.json", "package.json", ".git"]
+roots = [".git"]
 command = "typescript-language-server"
 args = ["--stdio"]
 settings_section = "initializationOptions"
 [language.tsx.settings.initializationOptions]
-maxTsServerMemory = 8192
+maxTsServerMemory = 4096
 
 [language.yaml]
 filetypes = ["yaml"]
