@@ -33,6 +33,17 @@ set-option global autoreload true
 add-highlighter global/ number-lines
 
 #
+# LSP
+#
+
+# Enable LSP integration
+lsp-enable
+
+# Add User mode shortcuts
+map global user r ': lsp-rename-prompt<ret>'
+map global user h ': lsp-hover<ret>'
+
+#
 # Mappings
 #
 
@@ -72,13 +83,6 @@ hook global NormalKey y %{
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
     # Load editorconfig
     editorconfig-load
-
-    # Enable LSP integration
-    lsp-enable-window
-
-    # Add User mode shortcuts
-    map global user r ': lsp-rename-prompt<ret>'
-    map global user h ': lsp-hover<ret>'
 }
 
 # Format JS/TS with Prettier
