@@ -58,7 +58,7 @@ map -docstring 'comment line(s)' global user c ': comment-line<ret>'
 map -docstring 'comment block' global user C ': comment-block<ret>'
 
 # Split windows
-map -docstring 'split editor (vertical)' global user \" ':tmux-terminal-vertical kak -c %val{session}<ret>'
+map -docstring 'split editor (vertical)' global user \' ':tmux-terminal-vertical kak -c %val{session}<ret>'
 map -docstring 'split editor (horizontal)' global user \% ':tmux-terminal-horizontal kak -c %val{session}<ret>'
 
 #
