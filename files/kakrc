@@ -65,6 +65,11 @@ map -docstring 'split editor (horizontal)' global user \% ':tmux-terminal-horizo
 # Hooks
 #
 
+# Eliminate default content when opening a scratch buffer
+hook global BufCreate \*scratch\* %{
+    execute-keys \%d
+}
+
 # Yank to the system clipboard (`y` only)
 hook global NormalKey y %{
     nop %sh{
