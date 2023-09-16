@@ -44,6 +44,11 @@ settings_section = "rust-analyzer"
 hoverActions.enable = false # kak-lsp doesn't support this at the moment
 # cargo.features = []
 
+[language.zig]
+filetypes = ["zig"]
+roots = [".git"]
+command = "zls"
+
 [language.tsx]
 filetypes = ["typescript", "javascript"]
 roots = [".git"]
