@@ -36,9 +36,6 @@ add-highlighter global/ number-lines
 # LSP
 #
 
-# Enable LSP integration
-lsp-enable
-
 # Add User mode shortcuts
 map global user r ': lsp-rename-prompt<ret>'
 map global user h ': lsp-hover<ret>'
@@ -85,17 +82,24 @@ hook global NormalKey y %{
 }
 
 # Configure IDE services for all languages
-hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp|zig) %{
     # Load editorconfig
     editorconfig-load
+
+    lsp-enable-window
 }
 
 # Format JS/TS with Prettier
-hook global BufSetOption filetype=(typescript|javascript) %{
-    set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+hook global WinSetOption filetype=(typescript|javascript) %{
+    set-option window formatcmd "prettier --stdin-filepath=%val{buffile}"
+}
+
+# Format Zig
+hook global WinSetOption filetype=(zig) %{
+    set-option window formatcmd "zig fmt --stdin"
 }
 
 # Format YAML with yq
-hook global BufSetOption filetype=(yaml) %{
-    set-option buffer formatcmd "yq < %val{buffile}"
+hook global WinSetOption filetype=(yaml) %{
+    set-option window formatcmd "yq < %val{buffile}"
 }
