@@ -60,6 +60,8 @@ maxTsServerMemory = 4096
 logDirectory = "~/.logs/tsserver"
 logVerbosity = "terse"
 useSyntaxServer = "never"
+[language.tsx.settings.initializationOptions.preferences]
+includeCompletionsForImportStatements = false
 
 [language.yaml]
 filetypes = ["yaml"]
