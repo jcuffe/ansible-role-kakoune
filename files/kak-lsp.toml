@@ -54,9 +54,12 @@ filetypes = ["typescript", "javascript"]
 roots = [".git"]
 command = "typescript-language-server"
 args = ["--stdio"]
-settings_section = "initializationOptions"
 [language.tsx.settings.initializationOptions]
 maxTsServerMemory = 4096
+[language.tsx.settings.initializationOptions.tsserver]
+logDirectory = "~/.logs/tsserver"
+logVerbosity = "terse"
+useSyntaxServer = "never"
 
 [language.yaml]
 filetypes = ["yaml"]
