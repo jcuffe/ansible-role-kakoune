@@ -62,7 +62,7 @@ logDirectory = "/home/jcuffe/.logs/tsserver"
 logVerbosity = "normal"
 useSyntaxServer = "never"
 [language.tsx.settings.initializationOptions.preferences]
-includeCompletionsForImportStatements = false
+includeCompletionsForModuleExports = false # Omit auto-import suggestions because the glidian app's import style is completely incompatible
 
 [language.yaml]
 filetypes = ["yaml"]
