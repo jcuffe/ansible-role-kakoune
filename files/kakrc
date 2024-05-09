@@ -72,7 +72,8 @@ hook global NormalKey y %{
     nop %sh{
         # Set contents of main register to tmux copy buffer
         # -w flag is required to pass data along to system clipboard
-        tmux setb -w "$kak_main_reg_dquote"
+        # Use double dash to ensure copied text is not interpreted as additional flags
+        tmux setb -w -- "$kak_main_reg_dquote"
 
         # Currently using tmux instead of OSC 52
         # Emit OSC 52 escape sequence with the yanked text as argument
